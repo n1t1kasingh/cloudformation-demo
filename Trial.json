@@ -3,7 +3,10 @@
     "Parameters" : {
       "SNSEmail" : {
         "Type" : "String",
-        "Description" : "Enter email for SNS notification"
+        "Description" : "Enter email for SNS notification",
+        "Properties":{
+          "Name": "nikativikata.singh@gmail.com"
+        }
       }
     },
     "Resources" : {
