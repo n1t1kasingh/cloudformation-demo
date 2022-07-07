@@ -3,27 +3,9 @@
     "Resources": {
         "S3Bucket": {
             "Type": "AWS::S3::Bucket"
-        },
-        ,
-          "MyStream": {
-            "Type": "AWS::Kinesis::Stream",
-            "Properties": {
-                "Name": "Kinesis123",
-                "RetentionPeriodHours" : 168,
-                "ShardCount": 4,
-                "StreamEncryption": {
-                    "EncryptionType": "KMS",
-                    "KeyId": "alias/aws/kinesis"
-                    }
-                }
+        }
     },
     "Outputs": {
-        "DataStreamName": {
-            "Value": {
-                "Ref": "MyStream"
-            },
-            "Description": "Name of the sample Amazon Kinesis ."
-        },
         "BucketName": {
            "Value": {
                "Ref": "S3Bucket"
