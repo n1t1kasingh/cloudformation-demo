@@ -6,7 +6,7 @@ Parameters:
 CFNStreamName:
     Description: This will be used to name the Kinesis DataStream
     Type: String
-    Default: 'kinesis-req-name'
+    Default: 'data-stream'
 
 CFNRetensionHours:
     Description: This will be used to set the retension hours
@@ -16,18 +16,18 @@ CFNRetensionHours:
 CFNShardCount:
     Description: This will be used to set the shard count
     Type: Number
-    Default: 4
+    Default: 2
 
 Resources:
     MongoCDCStream:
-        Type: AWS::Kinesis::Stream
-        Properties:
-            Name: !Ref CFNStreamName
-            RetentionPeriodHours: !Ref CFNRetensionHours
-            ShardCount: !Ref CFNShardCount
-            StreamEncryption:
-              EncryptionType: KMS
-              KeyId: alias/aws/kinesis
+Type: AWS::Kinesis::Stream
+Properties:
+  Name: !Ref CFNStreamName
+  RetentionPeriodHours: !Ref CFNRetensionHours
+  ShardCount: !Ref CFNShardCount
+  StreamEncryption:
+      EncryptionType: KMS
+      KeyId: alias/aws/kinesis
 Outputs:
     MongoCDCStream:
     Value: !Ref MongoCDCStream
