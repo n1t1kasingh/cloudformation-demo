@@ -1,0 +1,49 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters" : {
+      "SNSEmail" : {
+        "Type" : "String",
+        "Description" : "Enter email for SNS notification"
+      }
+    },
+    "Resources" : {
+        "AlertSNSTopic" : {
+            "Type" : "AWS::SNS::Topic",
+            "Properties" : {
+              "Subscription" :  [{
+                "Endpoint" : { "Ref" : "SNSEmail"},
+                "Protocol" : "email"
+              }]
+            }
+          },
+          "MyStream": {
+            "Type": "AWS::Kinesis::Stream",
+            "Properties": {
+                "Name": "Kinesis1234",
+                "RetentionPeriodHours" : 168,
+                "ShardCount": 4,
+                "StreamEncryption": {
+                    "EncryptionType": "KMS",
+                    "KeyId": "alias/aws/kinesis"
+                    }
+                }
+        },
+        "S3Bucket": {
+            "Type": "AWS::S3::Bucket"
+        }
+      },
+    "Outputs": {
+        "DataStreamName": {
+            "Value": {
+                "Ref": "MyStream"
+            },
+            "Description": "Name of the sample Amazon Kinesis ."
+        },
+        "BucketName": {
+           "Value": {
+               "Ref": "S3Bucket"
+           },
+           "Description": "Name of the sample Amazon S3 bucket."
+       }
+    }
+    }
