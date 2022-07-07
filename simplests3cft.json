@@ -14,12 +14,6 @@
                 "Ref": "S3Bucket"
             },
             "Description": "Name of the sample Amazon S3 bucket."
-        },
-        "StreamName": {
-            "Value": {
-                "Ref": "Streams"
-            },
-           "Description": "Name of the sample Kinesis Stream."
-    }
+        }
     }
 }
