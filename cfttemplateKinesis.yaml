@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'This template will create an AWS Kinesis DataStream'
+
+Parameters:
+
+CFNStreamName:
+    Description: This will be used to name the Kinesis DataStream
+    Type: String
+    Default: 'kinesis-req-name'
+
+CFNRetensionHours:
+    Description: This will be used to set the retension hours
+    Type: Number
+    Default: 168
+
+CFNShardCount:
+    Description: This will be used to set the shard count
+    Type: Number
+    Default: 4
+
+Resources:
+    MongoCDCStream:
+        Type: AWS::Kinesis::Stream
+        Properties:
+            Name: !Ref CFNStreamName
+            RetentionPeriodHours: !Ref CFNRetensionHours
+            ShardCount: !Ref CFNShardCount
+            StreamEncryption:
+              EncryptionType: KMS
+              KeyId: alias/aws/kinesis
+Outputs:
+    MongoCDCStream:
+    Value: !Ref MongoCDCStream
+    Export:
+        Name: !Sub ${AWS::StackName}-MongoCDCStream
