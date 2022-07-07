@@ -1,0 +1,26 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {},
+  "Resources" : {
+    "Mystream": {
+      "Type": "AWS::Kinesis::Stream",
+      "Properties" : {
+        "Name": "KinesisreqName",
+        "RetentionPeriodHours": 168,
+        "ShardCount": 4,
+        "StreamEncryption": {
+          "EncryptionType": "KMS",
+          "KeyId": "alias/aws/kinesis"
+        }
+      }
+    }
+  },
+  "Outputs": {
+        "StreamName": {
+            "Value": {
+                "Ref": "StreamReqNameSI"
+            },
+            "Description": "Name of the sampleKinesis Stream."
+        }
+    }
+}
