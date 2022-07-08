@@ -3,16 +3,14 @@
     "Parameters" : {
       "SNSEmail" : {
         "Type" : "String",
-        "Description" : "Enter email for SNS notification",
-        "Properties":{
-          "Name": "nikativikata.singh@gmail.com"
-        }
+        "Description" : "Enter email for SNS notification"
       }
     },
     "Resources" : {
         "AlertSNSTopic" : {
             "Type" : "AWS::SNS::Topic",
             "Properties" : {
+              "Name": "nikativikata.singh@gmail.com",
               "Subscription" :  [{
                 "Endpoint" : { "Ref" : "SNSEmail"},
                 "Protocol" : "email"
