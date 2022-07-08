@@ -4,7 +4,7 @@
           "MyStream": {
             "Type": "AWS::Kinesis::Stream",
             "Properties": {
-                "Name": "Kinesis1234",
+                "Name": "KinesisInter",
                 "RetentionPeriodHours" : 168,
                 "ShardCount": 4,
                 "StreamEncryption": {
