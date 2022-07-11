@@ -123,10 +123,15 @@
 	},
 	"Outputs": {
 		"BucketName": {
-			"Value": {"Ref": "S3BucketName"}
-		},
-		"KinesisStreamData": {
-			"Value": {"Ref": "StreamData"}
-		}
+          	  "Value": {
+             	  "Ref": "S3BucketName"
+           	}
+       },
+	 {
+		"Datastream": {
+          	  "Value": {
+             	  "Ref": "StreamData"
+           	}
+       }
 	}
 }
