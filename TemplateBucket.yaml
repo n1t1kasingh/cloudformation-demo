@@ -21,7 +21,7 @@ Parameters:
 Resources:
     S3Bucket: 
         Type: AWS::S3::Bucket
-        VersioningConfiguration:
+        #VersioningConfiguration:
         Status: Enabled
         Properties: 
             BucketName: !Ref S3BucketName
