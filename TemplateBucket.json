@@ -40,7 +40,7 @@
       "DependsOn":"AWSLambdaExecutionRole",
       "Properties": {
         "ServiceToken": {"Fn::GetAtt": ["AWSLambdaFunction","Arn"]},
-        "the_bucket": {"Ref":"SampleS3Bucket"},
+        "the_bucket": {"Ref":"S3BucketName"},
         "dirs_to_create": {"Ref":"DirsToCreate"}
       }
     },
