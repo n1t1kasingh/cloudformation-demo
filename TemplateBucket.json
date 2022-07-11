@@ -19,7 +19,6 @@
 	"Resources": {
 		"S3Bucket": {
 			"Type": "AWS::S3::Bucket",
-			"Status": "Enabled",
 			"Properties": {
 				"BucketName": {"Ref": "S3BucketName"}
 			}
