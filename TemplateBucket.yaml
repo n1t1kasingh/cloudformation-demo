@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: "Create S3 bucket and Kinesis data Stream"
 
-Transform: S3Objects
 
 Parameters: 
     S3BucketName:
@@ -17,8 +16,7 @@ Parameters:
         Description: Enter Stream Name
         Type: String
         AllowedPattern: kinesis-data-stream(-\w+)+
-    ANameField:
-        Type: String
+    
 
 Resources:
     S3Bucket: 
@@ -123,21 +121,9 @@ Resources:
             Version: '2012-10-17'
           PolicyName: !Sub ${AWS::StackName}-${AWS::Region}-AWSLambda-S3
         RoleName: !Sub ${AWS::StackName}-${AWS::Region}-AWSLambdaExecutionRole
-    S3Object:
-    Type: AWS::S3::Object
-    Properties:
-      Target:
-        Bucket: !Ref S3Bucket
-        Key: README.md  #object name
-        ContentType: text/markdown
-      Body: !Sub |
-        # My text file
-
-        This is my text file for ${ANameField}.
-        The region is ${AWS::Region} and my account ID is ${AWS::AccountId}.
-        This file is in the ${S3Bucket} bucket. The bucket ARN is ${S3Bucket.Arn},
-        and its website endpoint is ${S3Bucket.WebsiteURL}
-
+    
 Outputs:
     BucketName: 
         Value: !Ref 'S3Bucket'
+    KinesisStreamData:
+        Value: !Ref 'StreamData'
