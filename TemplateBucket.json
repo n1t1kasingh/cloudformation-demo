@@ -121,8 +121,6 @@
         "RoleName": {"Fn::Sub":"${AWS::StackName}-${AWS::Region}-AWSLambdaExecutionRole"}
       }
     }
-  }
-}
 	},
 	"Outputs": {
 		"BucketName": {
