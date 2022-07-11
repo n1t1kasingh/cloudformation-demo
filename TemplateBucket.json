@@ -122,16 +122,17 @@
     }
 	},
 	"Outputs": {
-		"BucketName": {
-          	  "Value": {
-             	  "Ref": "S3BucketName"
-           	}
-       },
-	 
-		"Datastream": {
-          	  "Value": {
-             	  "Ref": "StreamData"
-           	}
+        "DataStreamName": {
+            "Value": {
+                "Ref": "StreamData"
+            },
+            "Description": "Name of the sample Amazon Kinesis ."
+        },
+        "BucketName": {
+           "Value": {
+               "Ref": "S3BucketName"
+           },
+           "Description": "Name of the sample Amazon S3 bucket."
        }
-	}
-}
+    }
+    }
