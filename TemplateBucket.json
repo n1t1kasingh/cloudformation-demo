@@ -21,13 +21,13 @@
 			"Type": "AWS::S3::Bucket",
 			"Status": "Enabled",
 			"Properties": {
-				"BucketName": {"Ref", "S3BucketName"}
+				"BucketName": {"Ref": "S3BucketName"}
 			}
 		},
 		"MyStream": {
 			"Type": "AWS::Kinesis::Stream",
 			"Properties": {
-				"Name": {"Ref", "StreamData"},
+				"Name": {"Ref": "StreamData"},
 				"RetentionPeriodHours": 168,
 				"ShardCount": 4,
 				"StreamEncryption": {
