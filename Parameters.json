@@ -2,6 +2,6 @@
   "Parameters" : {
     "S3BucketName" : "company-zone1",
     "DirsToCreate": "file1/jar1,file1/jar2,file2/jar1",
-    "StreamData" : "Kin1b2"
+    "StreamData" : "kinesis-data-stream-12sde3"
   }
 } 
