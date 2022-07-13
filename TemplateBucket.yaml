@@ -16,9 +16,6 @@ Parameters:
         Description: Enter Stream Name
         Type: String
         AllowedPattern: kinesis-data-stream(-\w+)+
-    Shards:
-        Description: Enter Reqd Shard Count
-        Type: Integer
 
 Resources:
     S3Bucket: 
@@ -30,7 +27,7 @@ Resources:
           Properties: 
             Name: !Ref StreamData
             RetentionPeriodHours : 168
-            ShardCount: !Ref Shards
+            ShardCount: 4
             StreamEncryption: 
                   EncryptionType: KMS
                   KeyId: alias/aws/kinesis
