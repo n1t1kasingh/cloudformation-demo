@@ -16,7 +16,7 @@ Parameters:
         Description: Enter Stream Name
         Type: String
         AllowedPattern: kinesis-data-stream(-\w+)+
-     Shards:
+    Shards:
         Description: Enter Reqd Shard Count
         Type: Integer
 
