@@ -89,6 +89,7 @@ Resources:
           Statement:
           - Action:
             - sts:AssumeRole
+            - sts:CreateRole
             Effect: Allow
             Principal:
               Service:
